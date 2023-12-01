@@ -4,6 +4,6 @@ export interface Movie {
     rating: number;
     duration: string;
     genres: string[];
-    releaseDate: string;
+    releasedDate: string;
     trailerUrl: string;
 }
