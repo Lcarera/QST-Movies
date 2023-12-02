@@ -1,5 +1,5 @@
 import { Movie } from '@/interface/movie.interface';
-import { MovieService } from '@/services/movie.service';
+import { MovieService } from '@/services/movie/movie.service';
 import { Component, OnInit, inject } from '@angular/core';
 
 @Component({
@@ -19,6 +19,5 @@ export class MoviesComponent implements OnInit {
 
   addToWatchlist(movie: Movie): void {
     console.log(movie);
-    
   }
 }

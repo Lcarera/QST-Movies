@@ -10,6 +10,6 @@ export class MovieService {
   private http:HttpClient = inject(HttpClient);
 
   getMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>('assets/data/movies.json');
+    return this.http.get<Movie[]>('http://localhost:3000/movies');
   }
 }
