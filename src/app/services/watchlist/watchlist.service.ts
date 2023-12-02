@@ -8,15 +8,22 @@ import { Observable } from 'rxjs';
 })
 export class WatchlistService {
   private http: HttpClient = inject(HttpClient);
+  private serverUrl = 'http://localhost:3000/watchlist';
 
   getWatchlist(): Observable<WatchlistItem[]> {
-    return this.http.get<WatchlistItem[]>('http://localhost:3000/wathclist');
+    return this.http.get<WatchlistItem[]>(this.serverUrl);
   }
 
   addToWatchlist(movie: WatchlistItem): Observable<WatchlistItem> {
     return this.http.post<WatchlistItem>(
-      'http://localhost:3000/watchlist',
+      this.serverUrl,
       movie
+    );
+  }
+
+  isOnWatchlist(movieId: number): Observable<boolean> {
+    return this.http.get<boolean>(
+      this.serverUrl + `/${movieId}`
     );
   }
 }
