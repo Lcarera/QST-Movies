@@ -1,0 +1,92 @@
+@use '@angular/material' as mat;
+
+$deep-blue: mat.define-palette((
+    50: #f2f6ff,
+    100: #ebeeff,
+    200: #e0e3ff,
+    300: #cfd3f8,
+    400: #abaed3,
+    500: #8a8eb1,
+    600: #626687,
+    700: #4f5373,
+    800: #303553,
+    900: #0d1630,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #ffffff,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+    )
+));
+
+$sunnny-yellow: mat.define-palette((
+    50: #fffde9,
+    100: #fff9c7,
+    200: #fff4a3,
+    300: #ffef7f,
+    400: #ffea63,
+    500: #ffe44a,
+    600: #ffd84c,
+    700: #ffc145,
+    800: #fbaa3e,
+    900: #f48333,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #000000,
+        500: #000000,
+        600: #000000,
+        700: #000000,
+        800: #ffffff,
+        900: #ffffff,
+    )
+));
+
+$warning-red: mat.define-palette((
+    50: #fdedf1,
+    100: #fcd1d9,
+    200: #eca0a7,
+    300: #e27c85,
+    400: #ee5f68,
+    500: #f44f52,
+    600: #e64850,
+    700: #d33f49,
+    800: #c63942,
+    900: #b63137,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #ffffff,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+    )
+));
+
+$my-primary: mat.define-palette($deep-blue, 900);
+$my-accent: mat.define-palette($sunnny-yellow, 700);
+$my-warn: mat.define-palette($warning-red, 700);
+
+$my-theme: mat.define-dark-theme((
+    color: (
+        primary: $my-primary,
+        accent: $my-accent,
+        warn: $my-warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+));
+
+@include mat.all-component-themes($my-theme);
