@@ -6,6 +6,6 @@
     <p>Duration: {{ movie.duration }}</p>
     <p>Released Date: {{ movie.releasedDate }}</p>
     <p>Genres: {{ movie.genres }}</p>
-    <button (click)="addToWatchlist(movie)">Add to Watchlist</button>
+    <button *ngIf="!isOnWatchlist" (click)="addToWatchlist(movie)">Add to Watchlist</button>
     
 </div>

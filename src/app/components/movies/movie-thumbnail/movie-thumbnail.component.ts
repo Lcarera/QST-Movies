@@ -10,10 +10,14 @@ export class MovieThumbnailComponent {
   @Input() 
   movie!: Movie;
 
+  @Input()
+  isOnWatchlist!: boolean;
+
   @Output() 
   addToWatchlistEmmiter = new EventEmitter<Movie>();
 
   addToWatchlist(movie: Movie): void {
     this.addToWatchlistEmmiter.emit(movie);
+    this.isOnWatchlist = true;
   }
 }

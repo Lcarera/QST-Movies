@@ -1,3 +1,3 @@
 <div *ngFor="let movie of movies" class="movie-thumbnail">
-    <app-movie-thumbnail [movie]="movie" (addToWatchlistEmmiter)="addToWatchlist($event)"></app-movie-thumbnail>
+    <app-movie-thumbnail [movie]="movie" [isOnWatchlist]="isOnWatchlist(movie.id)" (addToWatchlistEmmiter)="addToWatchlist($event)"></app-movie-thumbnail>
 </div>
