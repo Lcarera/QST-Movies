@@ -6,6 +6,10 @@ import { MoviesRoutingModule } from './movies-routing.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [MoviesComponent, MovieThumbnailComponent],
@@ -15,6 +19,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
+    MatTooltipModule,
+    MatChipsModule,
+    MatSnackBarModule,
   ],
 })
 export class MoviesModule {}

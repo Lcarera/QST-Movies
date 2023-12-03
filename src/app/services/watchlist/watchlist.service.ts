@@ -21,6 +21,18 @@ export class WatchlistService {
     );
   }
 
+  getWatchlistItem(movieId: number): Observable<WatchlistItem> {
+    return this.http.get<WatchlistItem>(
+      this.serverUrl + `/${movieId}`
+    );
+  }
+
+  removeFromWatchlist(watchListItem:WatchlistItem): Observable<void> {
+    return this.http.delete<void>(
+      this.serverUrl + `/${watchListItem.id}`
+    );
+  }
+
   isOnWatchlist(movieId: number): Observable<boolean> {
     return this.http.get<boolean>(
       this.serverUrl + `/${movieId}`

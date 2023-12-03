@@ -2,16 +2,29 @@
   <mat-card class="movie-card">
     <mat-card-header>
       <mat-card-title>{{ movie.title }}</mat-card-title>
-      <mat-card-subtitle>{{ movie.rating }}</mat-card-subtitle>
+      <mat-card-subtitle>
+       
+        <span> <mat-icon class="rating-icon" aria-hidden="false" aria-label="rating icon" fontIcon="star" color="accent"></mat-icon>   {{ movie.rating }}</span>
+      </mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="assets/resources/{{ movie.title.split(':')[0] }}.png" alt="{{ movie.title }}" />
     <mat-card-content>
-      <p>{{ movie.genres }}</p>
+      <mat-chip-listbox aria-label="Movie genres">
+        <mat-chip *ngFor="let genre of movie.genres" color="primary">
+          {{genre}}
+        </mat-chip>
+      </mat-chip-listbox>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-stroked-button *ngIf="!isOnWatchlist" (click)="addToWatchlist(movie)" color="accent">
-        <mat-icon aria-hidden="false" aria-label="add to watchlist icon" fontIcon="add"></mat-icon> Add to Watchlist
+      <button mat-stroked-button *ngIf="!isOnWatchlist; else alreadyInWatchlist" (click)="addToWatchlist(movie)"
+        color="accent" matTooltip="Add to watchlist">
+        <mat-icon aria-hidden="false" aria-label="add to watchlist icon" fontIcon="add"></mat-icon> Watchlist
       </button>
+      <ng-template #alreadyInWatchlist>
+        <button mat-stroked-button (click)="removeFromWatchlist(movie)" color="accent" matTooltip="Remove from watchlist">
+          <mat-icon aria-hidden="false" aria-label="remove from watchlist icon" fontIcon="remove"></mat-icon> Watchlist
+        </button>
+      </ng-template>
     </mat-card-actions>
   </mat-card>
 </div>

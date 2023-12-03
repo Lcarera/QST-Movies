@@ -1,7 +1,9 @@
 .movie-card {
     margin: 1em;
     min-width: 290px;
-    max-height: 570px;
+    max-height: 600px;
+    padding: 8px;
+    border-radius: 8px;
 }
 
 img {
@@ -17,4 +19,45 @@ mat-card-title {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+mat-card-header {
+    padding-top: 0;
+}
+
+mat-chip-listbox {
+    margin: 4px 0 4px 0 !important;
+}
+
+mat-chip {
+    border-radius: 8px;
+}
+
+mat-card-content {
+    padding: 0 8px 0 8px;
+}
+
+mat-card-subtitle {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    margin: 4px;
+}
+
+.rating-icon {
+    font-size: 14px;
+}
+
+mat-icon {
+    height: 14px;
+    width: 14px;
+}
+
+.custom-snackbar {
+    color: white;
+    --mdc-snackbar-container-color: red;
+  
+    .mat-simple-snackbar-action {
+      color: white;
+    }
 }

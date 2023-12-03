@@ -16,12 +16,8 @@ export class MoviesComponent implements OnInit {
   myWatchlist:WatchlistItem[] = [];
 
   ngOnInit(): void {
-    this.movieService.getMovies().subscribe((movies) => {
-      this.movies = movies;
-    });
-    this.watchlistService.getWatchlist().subscribe((watchlist) => {
-      this.myWatchlist = watchlist;
-    });
+    this.fetchMovies();
+    this.fetchWatchlist();
   }
 
   addToWatchlist(movie: Movie): void {
@@ -30,10 +26,32 @@ export class MoviesComponent implements OnInit {
       watched:false
     }
     this.watchlistService.addToWatchlist(newWatchlistItem).subscribe();
+    this.fetchWatchlist();
   }
 
   isOnWatchlist(movieId: number): boolean {
     return this.myWatchlist.some((item) => item.movie.id === movieId);
+  }
+
+  removeFromWatchlist(movie: Movie): void {
+    this.watchlistService.removeFromWatchlist(this.getWatchlistItem(movie.id)).subscribe();
+    this.fetchWatchlist();
+  }
+
+  getWatchlistItem(movieId: number): WatchlistItem {
+    return this.myWatchlist.find((item) => item.movie.id === movieId)!;
+  }
+
+  fetchMovies(): void {
+    this.movieService.getMovies().subscribe((movies) => {
+      this.movies = movies;
+    });
+  }
+
+  fetchWatchlist(): void {
+    this.watchlistService.getWatchlist().subscribe((watchlist) => {
+      this.myWatchlist = watchlist;
+    });
   }
   
 }

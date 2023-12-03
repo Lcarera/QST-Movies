@@ -1,7 +1,9 @@
 <div class="parent">
     <div class="movie-container">
         <div *ngFor="let movie of movies" class="movie-thumbnail">
-            <app-movie-thumbnail [movie]="movie" [isOnWatchlist]="isOnWatchlist(movie.id)" (addToWatchlistEmmiter)="addToWatchlist($event)"></app-movie-thumbnail>
+            <app-movie-thumbnail [movie]="movie" [isOnWatchlist]="isOnWatchlist(movie.id)"
+                (addToWatchlistEmmiter)="addToWatchlist($event)"
+                (removeFromWatchlistEmmiter)="removeFromWatchlist($event)"></app-movie-thumbnail>
         </div>
     </div>
 </div>
