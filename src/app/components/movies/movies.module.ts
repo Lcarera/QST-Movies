@@ -5,9 +5,16 @@ import { MovieThumbnailComponent } from './movie-thumbnail/movie-thumbnail.compo
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [MoviesComponent, MovieThumbnailComponent],
-  imports: [CommonModule, MoviesRoutingModule, MatCardModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    MoviesRoutingModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+  ],
 })
 export class MoviesModule {}
