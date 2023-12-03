@@ -1,21 +1,20 @@
-.example-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 400px;
+.movie-card {
     margin: 1em;
+    min-width: 290px;
+    max-height: 570px;
 }
 
 img {
-    padding: 1em;
-    width: 100%;
-    /* Make the image responsive */
-    height: auto;
-    /* Maintain aspect ratio */
     max-width: 300px;
-    /* Optionally limit maximum width */
+    max-height: 415px;
+    object-fit: cover;
+    object-position: 50% 50%;
+    margin: 0 0.5em;
 }
 
 mat-card-title {
-    width: max-content
+    max-width: 12em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
