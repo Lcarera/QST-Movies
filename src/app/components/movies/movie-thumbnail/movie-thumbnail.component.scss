@@ -7,8 +7,8 @@
 }
 
 img {
-    max-width: 300px;
-    max-height: 415px;
+    width: 300px;
+    height: 415px;
     object-fit: cover;
     object-position: 50% 50%;
     margin: 0 0.5em;
@@ -51,13 +51,4 @@ mat-card-subtitle {
 mat-icon {
     height: 14px;
     width: 14px;
-}
-
-.custom-snackbar {
-    color: white;
-    --mdc-snackbar-container-color: red;
-  
-    .mat-simple-snackbar-action {
-      color: white;
-    }
 }
