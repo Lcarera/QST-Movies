@@ -1,6 +1,7 @@
 import { Movie } from '@/interface/movie.interface';
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-thumbnail',
@@ -20,7 +21,8 @@ export class MovieThumbnailComponent {
   @Output()
   removeFromWatchlistEmmiter = new EventEmitter<Movie>();
 
-  constructor(private _snackBar: MatSnackBar) {}
+  _snackBar: MatSnackBar = inject(MatSnackBar);
+  router: Router = inject(Router);
 
   addToWatchlist(movie: Movie): void {
     this.addToWatchlistEmmiter.emit(movie);
@@ -39,5 +41,9 @@ export class MovieThumbnailComponent {
       duration: 30000,
       panelClass: 'custom-snackbar',
     });
+  }
+
+  redictToDetail() {
+    this.router.navigate(['/movie/' + this.movie.id]);
   }
 }
