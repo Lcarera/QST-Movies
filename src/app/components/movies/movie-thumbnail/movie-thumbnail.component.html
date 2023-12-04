@@ -3,9 +3,14 @@
     <mat-card-header>
       <mat-card-title>{{ movie.title }}</mat-card-title>
       <mat-card-subtitle>
-       
-        <span> <mat-icon class="rating-icon" aria-hidden="false" aria-label="rating icon" fontIcon="star" color="accent"></mat-icon>   {{ movie.rating }}</span>
-      </mat-card-subtitle>
+        <div class="subtitle-content">
+            <span>{{movie.releasedDate | date: 'mediumDate'}}</span>
+            <span> 
+                <mat-icon class="rating-icon" aria-hidden="false" aria-label="rating icon" fontIcon="star" color="accent"></mat-icon>   
+                {{ movie.rating }}
+            </span>
+        </div>
+    </mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="assets/resources/{{ movie.title.split(':')[0] }}.png" alt="{{ movie.title }}" />
     <mat-card-content>

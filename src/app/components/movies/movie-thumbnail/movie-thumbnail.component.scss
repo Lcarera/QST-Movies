@@ -38,10 +38,9 @@ mat-card-content {
 }
 
 mat-card-subtitle {
+    min-width: 290px;
     font-size: 16px;
-    display: flex;
-    align-items: center;
-    margin: 4px;
+
 }
 
 .rating-icon {
@@ -51,4 +50,9 @@ mat-card-subtitle {
 mat-icon {
     height: 14px;
     width: 14px;
+}
+
+.subtitle-content {
+    display: flex;
+    justify-content: space-between;
 }
