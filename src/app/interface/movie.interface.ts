@@ -6,5 +6,5 @@ export interface Movie {
     duration: string;
     genres: string[];
     releasedDate: string;
-    trailerUrl: string;
+    trailerLink: string;
 }
