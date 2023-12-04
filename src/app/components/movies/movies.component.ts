@@ -15,6 +15,8 @@ export class MoviesComponent implements OnInit {
   movies:Movie[] = [];
   myWatchlist:WatchlistItem[] = [];
 
+  searchTerm: string = '';
+
   ngOnInit(): void {
     this.fetchMovies();
     this.fetchWatchlist();

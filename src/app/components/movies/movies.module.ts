@@ -9,10 +9,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { FilterPipe } from '@/pipes/filter.pipe';
 
 @NgModule({
-  declarations: [MoviesComponent, MovieThumbnailComponent],
+  declarations: [MoviesComponent, MovieThumbnailComponent, FilterPipe],
   imports: [
     CommonModule,
     MoviesRoutingModule,
@@ -22,6 +24,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatTooltipModule,
     MatChipsModule,
     MatSnackBarModule,
+    MatInputModule,
+    FormsModule,
   ],
 })
 export class MoviesModule {}

@@ -1,6 +1,14 @@
+<mat-form-field class="search-input">
+    <mat-label>Clearable input</mat-label>
+    <input matInput type="text" [(ngModel)]="searchTerm" color="accent">
+    <button *ngIf="searchTerm" matSuffix mat-icon-button aria-label="Clear" (click)="searchTerm=''">
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-form-field>
+
 <div class="parent">
     <div class="movie-container">
-        <div *ngFor="let movie of movies" class="movie-thumbnail">
+        <div *ngFor="let movie of movies | filter:searchTerm" class="movie-thumbnail">
             <app-movie-thumbnail [movie]="movie" [isOnWatchlist]="isOnWatchlist(movie.id)"
                 (addToWatchlistEmmiter)="addToWatchlist($event)"
                 (removeFromWatchlistEmmiter)="removeFromWatchlist($event)"></app-movie-thumbnail>
