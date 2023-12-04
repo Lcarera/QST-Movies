@@ -1,0 +1,9 @@
+<div>
+    <h2>{{ movie.title }}</h2>
+    <img src="assets/resources/{{ movie.title.split(':')[0] }}.png" alt="{{ movie.title }}">
+    <p>{{ movie.description }}</p>
+  
+    <iframe width="560" height="315" [src]="ifreameUrl" frameborder="0" allowfullscreen></iframe>
+  
+    <mat-button-toggle (change)="onToggleWatchlist($event)" [checked]="isOnWatchlist(movie.id)">Add to Watchlist</mat-button-toggle>
+</div>
