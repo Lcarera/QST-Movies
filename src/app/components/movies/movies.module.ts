@@ -12,9 +12,18 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from '@/pipes/filter.pipe';
+import { MovieGenresComponent } from './movie-genres/movie-genres.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
-  declarations: [MoviesComponent, MovieThumbnailComponent, FilterPipe],
+  declarations: [
+    MoviesComponent,
+    MovieThumbnailComponent,
+    FilterPipe,
+    MovieDetailComponent,
+    MovieGenresComponent,
+  ],
   imports: [
     CommonModule,
     MoviesRoutingModule,
@@ -26,6 +35,7 @@ import { FilterPipe } from '@/pipes/filter.pipe';
     MatSnackBarModule,
     MatInputModule,
     FormsModule,
+    MatGridListModule,
   ],
 })
 export class MoviesModule {}
