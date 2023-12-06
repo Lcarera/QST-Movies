@@ -1,9 +1,26 @@
-<div>
-    <h2>{{ movie.title }}</h2>
-    <img src="assets/resources/{{ movie.title.split(':')[0] }}.png" alt="{{ movie.title }}">
-    <p>{{ movie.description }}</p>
-  
-    <iframe width="560" height="315" [src]="ifreameUrl" frameborder="0" allowfullscreen></iframe>
-  
-    <mat-button-toggle (change)="onToggleWatchlist($event)" [checked]="isOnWatchlist(movie.id)">Add to Watchlist</mat-button-toggle>
+<div class="container">
+    <div class="row">
+        <div class="details-column">
+            <img src="assets/resources/{{ movie.title.split(':')[0] }}.png" alt="{{ movie.title }} Image"
+                class="img-responsive">
+            <app-movie-genres [genres]="movie.genres"></app-movie-genres>
+        </div>
+        <div class="trailer-column">
+            <h1>{{ movie.title }}</h1>
+            <div class="info-row">
+                <p>
+                    <span>{{movie.releasedDate}}</span> | <span>{{movie.duration}}</span>
+                </p>
+                <span class="rating">
+                    <mat-icon class="rating-icon" aria-hidden="false" aria-label="rating icon" fontIcon="star"
+                        color="accent"></mat-icon>
+                    {{ movie.rating }}
+                </span>
+            </div>
+            <div class="trailer-container">
+                <iframe [src]="ifreameUrl" class="trailer" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p class="description">{{movie.description}}</p>
+        </div>
+    </div>
 </div>

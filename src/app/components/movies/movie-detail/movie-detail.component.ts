@@ -24,8 +24,6 @@ export class MovieDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
-
     if (!id) {
       this.router.navigate(['/movies']);
     } else {
@@ -39,9 +37,7 @@ export class MovieDetailComponent implements OnInit {
       this.movie = movie;
       const videoId = movie.trailerLink.split('v=')[1];
       const url = `https://www.youtube.com/embed/${videoId}`;
-      this.ifreameUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-        url
-      );
+      this.ifreameUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
     });
   }
 
