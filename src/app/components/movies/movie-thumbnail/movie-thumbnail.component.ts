@@ -44,6 +44,6 @@ export class MovieThumbnailComponent {
   }
 
   redictToDetail() {
-    this.router.navigate(['/movie/' + this.movie.id]);
+    this.router.navigate(['/movies/details/' + this.movie.id]);
   }
 }

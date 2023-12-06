@@ -14,11 +14,7 @@
     </mat-card-header>
     <img (click)="redictToDetail()" mat-card-image src="assets/resources/{{ movie.title.split(':')[0] }}.png" alt="{{ movie.title }}" />
     <mat-card-content (click)="redictToDetail()">
-      <mat-chip-listbox aria-label="Movie genres">
-        <mat-chip *ngFor="let genre of movie.genres" color="primary">
-          {{genre}}
-        </mat-chip>
-      </mat-chip-listbox>
+      <app-movie-genres [genres]="movie.genres"></app-movie-genres>
     </mat-card-content>
     <mat-card-actions>
       <button mat-stroked-button *ngIf="!isOnWatchlist; else alreadyInWatchlist" (click)="addToWatchlist(movie)"
