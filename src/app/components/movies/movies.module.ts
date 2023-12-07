@@ -15,6 +15,8 @@ import { FilterPipe } from '@/pipes/filter.pipe';
 import { MovieGenresComponent } from './movie-genres/movie-genres.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatInputModule,
     FormsModule,
     MatGridListModule,
+    MatButtonToggleModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class MoviesModule {}
