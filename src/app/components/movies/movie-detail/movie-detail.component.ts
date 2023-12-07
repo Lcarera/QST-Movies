@@ -37,12 +37,18 @@ export class MovieDetailComponent implements OnInit {
   }
 
   fetchMovie(): void {
-    this.movieService.getMovie(this.id).subscribe((movie) => {
-      this.movie = movie;
-      const videoId = movie.trailerLink.split('v=')[1];
-      const url = `https://www.youtube.com/embed/${videoId}`;
-      this.ifreameUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
-    });
+    this.movieService.getMovie(this.id).subscribe(
+      (movie) => {
+        this.movie = movie;
+        const videoId = movie.trailerLink.split('v=')[1];
+        const url = `https://www.youtube.com/embed/${videoId}`;
+        this.ifreameUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+      },
+      (error) => {
+        console.error(error);
+        this.router.navigate(['/movies']);
+      }
+    );
   }
 
   fetchWatchlist(): void {
