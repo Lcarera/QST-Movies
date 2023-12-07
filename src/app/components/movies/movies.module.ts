@@ -17,6 +17,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { WatchlistComponent } from './watchlist/watchlist.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     FilterPipe,
     MovieDetailComponent,
     MovieGenresComponent,
+    WatchlistComponent,
   ],
   imports: [
     CommonModule,
