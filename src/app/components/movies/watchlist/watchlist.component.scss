@@ -1,0 +1,20 @@
+.movie-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.parent {
+    display: flex;
+    justify-content: center;
+}
+
+.search-input {
+    width: 40%;
+    margin: 16px;
+
+    @media screen and (max-width: 600px) {
+        width: 80%;
+    }
+}
