@@ -1,10 +1,11 @@
 import { Movie } from '@/interface/movie.interface';
 import { MovieService } from '@/services/movie/movie.service';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { WatchlistItem } from '@/interface/watchlist-item.interface';
 import { WatchlistService } from '@/services/watchlist/watchlist.service';
+import { MatButtonToggle } from '@angular/material/button-toggle';
 @Component({
   selector: 'app-movie-detail',
   templateUrl: './movie-detail.component.html',
@@ -15,6 +16,8 @@ export class MovieDetailComponent implements OnInit {
   ifreameUrl: SafeUrl = '';
   movie!: Movie;
   myWatchlist: WatchlistItem[] = [];
+
+  @ViewChild('watchlistToggle') watchlistToggle!: MatButtonToggle;
 
   private route: ActivatedRoute = inject(ActivatedRoute);
   private router: Router = inject(Router);
@@ -29,6 +32,7 @@ export class MovieDetailComponent implements OnInit {
     } else {
       this.id = id;
       this.fetchMovie();
+      this.fetchWatchlist();
     }
   }
 
@@ -57,6 +61,10 @@ export class MovieDetailComponent implements OnInit {
   }
 
   isOnWatchlist(movieId: number): boolean {
+    console.log(movieId);
+    console.log(this.myWatchlist);
+    
+    
     return this.myWatchlist.some((item) => item.movie.id === movieId);
   }
 
@@ -71,8 +79,8 @@ export class MovieDetailComponent implements OnInit {
     return this.myWatchlist.find((item) => item.movie.id === movieId)!;
   }
 
-  onToggleWatchlist(event: any) {
-    if (event.source.checked) this.addToWatchlist(this.movie);
+  onToggleWatchlist() {
+    if (this.watchlistToggle.checked) this.addToWatchlist(this.movie);
     else this.removeFromWatchlist(this.movie);
   }
 }

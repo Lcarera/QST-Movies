@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="movie; else loader" class="container">
     <div class="row">
         <div class="details-column">
             <img src="assets/resources/{{ movie.title.split(':')[0] }}.png" alt="{{ movie.title }} Image"
@@ -7,6 +7,9 @@
         </div>
         <div class="trailer-column">
             <h1>{{ movie.title }}</h1>
+            <mat-button-toggle #watchlistToggle (click)="onToggleWatchlist()" [checked]="isOnWatchlist(movie.id)">
+                {{ watchlistToggle.checked ? 'Remove from Watchlist' : 'Add to Watchlist' }}
+            </mat-button-toggle>
             <div class="info-row">
                 <p>
                     <span>{{movie.releasedDate}}</span> | <span>{{movie.duration}}</span>
@@ -24,3 +27,8 @@
         </div>
     </div>
 </div>
+<ng-template #loader>
+    <div class="spinner-container">
+        <mat-progress-spinner color="accent" mode="indeterminate"></mat-progress-spinner>
+    </div>
+</ng-template>

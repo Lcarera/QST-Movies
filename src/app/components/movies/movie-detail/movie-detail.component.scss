@@ -27,7 +27,8 @@
     padding-left: 15px;
 }
 
-.details-column, .trailer-column {
+.details-column,
+.trailer-column {
     margin-top: 20px;
 }
 
@@ -35,9 +36,6 @@ h1 {
     margin-top: 0;
 }
 
-p{
-    margin-left: 15px;
-}
 
 .img-responsive {
     max-width: 100%;
@@ -78,4 +76,21 @@ mat-icon {
 .rating {
     display: flex;
     align-items: center;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Adjust this value as needed */
+}
+
+.mat-button-toggle{
+    background-color: #ffc145;
+    color: #000000;
+}
+
+.mat-button-toggle-checked {
+    color: #4f5373 !important;
 }
