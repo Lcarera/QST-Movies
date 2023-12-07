@@ -1,41 +1,41 @@
 import { WatchlistItem } from '@/interface/watchlist-item.interface';
-import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WatchlistService {
-  private http: HttpClient = inject(HttpClient);
-  private serverUrl = 'http://localhost:3000/watchlist';
+  private watchlistKey = 'watchlist';
 
   getWatchlist(): Observable<WatchlistItem[]> {
-    return this.http.get<WatchlistItem[]>(this.serverUrl);
+    const watchlist = JSON.parse(localStorage.getItem(this.watchlistKey) || '[]');
+    return of(watchlist);
   }
 
   addToWatchlist(movie: WatchlistItem): Observable<WatchlistItem> {
-    return this.http.post<WatchlistItem>(
-      this.serverUrl,
-      movie
-    );
+    const watchlist = JSON.parse(localStorage.getItem(this.watchlistKey) || '[]');
+    watchlist.push(movie);
+    localStorage.setItem(this.watchlistKey, JSON.stringify(watchlist));
+    return of(movie);
   }
 
   getWatchlistItem(movieId: number): Observable<WatchlistItem> {
-    return this.http.get<WatchlistItem>(
-      this.serverUrl + `/${movieId}`
-    );
+    const watchlist = JSON.parse(localStorage.getItem(this.watchlistKey) || '[]');
+    const item = watchlist.find((movie: WatchlistItem) => movie.id === movieId);
+    return of(item);
   }
 
   removeFromWatchlist(watchListItem:WatchlistItem): Observable<void> {
-    return this.http.delete<void>(
-      this.serverUrl + `/${watchListItem.id}`
-    );
+    let watchlist = JSON.parse(localStorage.getItem(this.watchlistKey) || '[]');
+    watchlist = watchlist.filter((movie: WatchlistItem) => movie.id !== watchListItem.id);
+    localStorage.setItem(this.watchlistKey, JSON.stringify(watchlist));
+    return of(undefined);
   }
 
   isOnWatchlist(movieId: number): Observable<boolean> {
-    return this.http.get<boolean>(
-      this.serverUrl + `/${movieId}`
-    );
+    const watchlist = JSON.parse(localStorage.getItem(this.watchlistKey) || '[]');
+    const isOnWatchlist = !!watchlist.find((movie: WatchlistItem) => movie.id === movieId);
+    return of(isOnWatchlist);
   }
 }
