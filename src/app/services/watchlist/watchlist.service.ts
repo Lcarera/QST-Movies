@@ -28,7 +28,7 @@ export class WatchlistService {
 
   removeFromWatchlist(watchListItem:WatchlistItem): Observable<void> {
     let watchlist = JSON.parse(localStorage.getItem(this.watchlistKey) || '[]');
-    watchlist = watchlist.filter((movie: WatchlistItem) => movie.id !== watchListItem.id);
+    watchlist = watchlist.filter((watchlist: WatchlistItem) => watchlist.movie.id !== watchListItem.movie.id);
     localStorage.setItem(this.watchlistKey, JSON.stringify(watchlist));
     return of(undefined);
   }
